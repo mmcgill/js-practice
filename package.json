@@ -1,0 +1,14 @@
+{
+  "name": "js-practice",
+  "version": "0.0.1",
+  "description": "Programming practice, and learning for fun",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jonmcgill",
+  "license": "N/A",
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
+}
