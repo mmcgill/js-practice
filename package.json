@@ -2,7 +2,7 @@
   "name": "js-practice",
   "version": "0.0.1",
   "description": "Programming practice, and learning for fun",
-  "main": "index.js",
+  "main": "list.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive test"
   },
