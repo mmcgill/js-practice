@@ -4,7 +4,7 @@
   "description": "Programming practice, and learning for fun",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha --recursive test"
   },
   "author": "jonmcgill",
   "license": "N/A",
