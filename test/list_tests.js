@@ -37,8 +37,8 @@ describe('cons', function () {
 
 describe('lists', function() {
    it('should overide toString', function() {
-      assert("(1)" === l.EMPTY.cons(1).toString());
-      assert("(1, 2, 3)" === l.list([1, 2, 3]).toString());
+      assert.strictEqual(l.EMPTY.cons(1).toString(), "(1)");
+      assert.strictEqual(l.list([1, 2, 3]).toString(), "(1, 2, 3)");
    });
    it('should be equal when they have the same values', function() {
       assert(l.list([1,2,3]).eq(l.list([1,2,3])));
@@ -47,6 +47,9 @@ describe('lists', function() {
    it('should not be equal when they have different values', function() {
       assert(!l.list([1,2,3]).eq(l.list([1,2,4])));
       assert(!l.list([1,2]).eq(l.list([1,2,3])));
+   });
+   it('should return the empty list when empty array is passed', function() {
+      assert(l.EMPTY === l.list([]));
    });
 });
 

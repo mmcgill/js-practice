@@ -76,10 +76,10 @@ List.prototype.first = function() {
  * on the empty list, returns the empty list.
  */
 EMPTY.rest = function() {
-   // TODO
+   return EMPTY;
 }
 List.prototype.rest = function() {
-   // TODO
+   
 };
 
 //////////// map //////////////////
@@ -139,7 +139,11 @@ List.prototype.reverse = function() {
  *   list([1, 2, 3]) // the list (1,2,3)
  */
 function list(items) {
-   // TODO
+   var list = EMPTY;
+   for (i=items.length - 1; i >= 0; i--) {
+      list = list.cons(items[i]);
+   }
+   return list;
 }
 
 // Make sure EMPTY is immutable!
