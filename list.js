@@ -130,6 +130,36 @@ List.prototype.reverse = function() {
    // TODO
 }
 
+///////////// filter ////////////////
+
+/* Filter l by pred. Returns a list containing
+ * only the elements of l for which pred(l) is truthy.
+ *
+ * Examples:
+ *   var isOdd = function(x) { return x & 1 === 1; };
+ *   list([1,2,3,4]).filter(isOdd).eq(list([1,3,5])); // true
+ */
+EMPTY.filter = function(pred) {
+   // TODO
+}
+List.prototype.filter = function(pred) {
+   // TODO
+}
+
+///////////// concat ////////////////
+
+/* Concatenate l1 and l2.
+ *
+ * Examples:
+ *   list([1,2]).concat(list([3,4])).eq(list[1,2,3,4])); // true
+ */
+EMPTY.concat = function(l2) {
+   // TODO
+}
+List.prototype.concat = function(l2) {
+   // TODO
+}
+
 ///////////// TOP-LEVEL FUNCTIONS ////////////
 
 /* Accept a variable number of arguments, returning them as a list.

@@ -114,3 +114,31 @@ describe('range', function() {
     });
 });
 
+describe('filter', function() {
+    var isEven = function(x) { return 0 === (x & 1); };
+    it('should return the empty list given the empty list', function() {
+        assert.strictEqual(l.EMPTY.filter(isEven), l.EMPTY);
+    });
+    it('should return a filtered list', function() {
+        assert.strictEqual(l.list([2,4,6]).toString(),
+                           l.list([1,2,3,4,5,6]).filter(isEven).toString());
+    });
+});
+
+describe('concat', function() {
+    it('should concat empty lists', function() {
+        assert.strictEqual(l.EMPTY.concat(l.EMPTY), l.EMPTY);
+    });
+    it('should concat onto the empty list', function() {
+        assert.strictEqual(l.EMPTY.concat(l.list([1,2])).toString(),
+                           l.list([1,2]).toString());
+    });
+    it('should concat the empty list onto a list', function() {
+        assert.strictEqual(l.list([1,2,3]).concat(l.EMPTY).toString(),
+                           l.list([1,2,3]).toString());
+    });
+    it('should concat non-empty lists', function() {
+        assert.strictEqual(l.list([1,2]).concat(l.list([3,4])).toString(),
+                           l.list([1,2,3,4]).toString());
+    });
+});
