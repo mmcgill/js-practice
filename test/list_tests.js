@@ -142,3 +142,31 @@ describe('concat', function() {
                            l.list([1,2,3,4]).toString());
     });
 });
+
+describe('large lists', function() {
+    var n = 50000;
+    var largeList = l.range(n);
+    var inc = function(acc,x) { return acc + 1; };
+    it('should be able to reduce large lists', function() {
+        assert.strictEqual(largeList.reduce(inc,0), n);
+    });
+    it('should be able to map and compare large lists', function() {
+        assert(l.range(n+1).rest().eq(largeList.map(function(x) { return x + 1; })));
+    });
+    it('should be able to reverse large lists', function() {
+        assert(largeList.map(function(x) { return n - x - 1; })
+                        .eq(largeList.reverse()));
+    });
+    it('should be able to concat large lists', function() {
+        assert(l.range(n/2)
+                .concat(l.range(n/2)
+                         .map(function(x) { return n/2 + x; }))
+                .eq(largeList));
+    });
+    it('should be able to filter large lists', function() {
+        var isPowerOf10 = function(x) { return null !== (''+x).match(/^10*$/); }
+        assert.strictEqual(largeList.filter(isPowerOf10).toString(),
+                           l.list([1,10,100,1000,10000]).toString());
+    });
+});
+
