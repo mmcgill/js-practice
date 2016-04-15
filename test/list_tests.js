@@ -54,12 +54,23 @@ describe('lists', function() {
 });
 
 describe('rest', function() {
+   it('should return a new list less the first element of the list', function() {
+      assert(l.list([1,2,3]).rest().eq(l.list([2,3])));
+   });
 });
 
 describe('first', function() {
+   it('should return the first friggin item of the list', function() {
+      assert.strictEqual(l.list([1,2,3]).first(), 1);
+   });
 });
 
 describe('map', function() {
+   it('should should apply f to eacb list element', function() {
+      var square = function(x) { return x * x; };
+      assert.strictEqual(l.list([1, 2, 3]).map(square).toString(),
+                         l.list([1, 4, 9]).toString());
+   });
 });
 
 describe('reduce', function() {

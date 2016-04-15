@@ -64,10 +64,10 @@ List.prototype.inspect = List.prototype.toString
 
 /* Returns the first element of the list, or null if the list is empty. */
 EMPTY.first = function() {
-   // TODO
+   return undefined;
 };
 List.prototype.first = function() {
-   // TODO
+   return this.x;
 };
 
 //////////// rest ////////////////
@@ -79,7 +79,7 @@ EMPTY.rest = function() {
    return EMPTY;
 }
 List.prototype.rest = function() {
-   
+   return this.tail;
 };
 
 //////////// map //////////////////
@@ -88,10 +88,10 @@ List.prototype.rest = function() {
  * element of the list.
  */
 EMPTY.map = function(f) {
-   // TODO
+   return EMPTY;
 }
 List.prototype.map = function(f) {
-   // TODO
+   return this.tail.map(f).cons(f(this.x));
 }
 
 //////////// reduce ///////////////
