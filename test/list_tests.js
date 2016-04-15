@@ -74,8 +74,43 @@ describe('map', function() {
 });
 
 describe('reduce', function() {
+    var add = function(x,y) { return x + y; };
+    it('should return initial given the empty list', function() {
+        assert.strictEqual(l.EMPTY.reduce(add, 0), 0);
+    });
+
+    it('should call f with initial and the first element', function() {
+        assert.strictEqual(l.list([1]).reduce(add, 0), 1);
+    });
+
+    it('should call f for each element in the list', function() {
+        assert.strictEqual(l.list([1,2,3,4]).reduce(add, 0), 10);
+    });
 });
 
 describe('reverse', function() {
+    it('should return empty as the reverse of empty', function() {
+        assert.strictEqual(l.EMPTY.reverse(), l.EMPTY);
+    });
+    it('should return a single-element list unchanged', function() {
+        var lst = l.list([1]);
+        assert.strictEqual(lst.toString(), lst.reverse().toString());
+    });
+    it('should return a reversed list', function() {
+        assert.strictEqual(l.list([4,3,2,1]).toString(), l.list([1,2,3,4]).reverse().toString());
+    });
+});
+
+describe('range', function() {
+    it('should return undefined when n < 0', function() {
+        assert.strictEqual(undefined, l.range(-1));
+    });
+    it('should return empty when n === 0', function() {
+        assert.strictEqual(l.EMPTY, l.range(0));
+    });
+    it('should return 0,1,...,n-1 when n > 0', function() {
+        assert.strictEqual(l.list([0]).toString(), l.range(1).toString());
+        assert.strictEqual(l.list([0,1,2,3,4]).toString(), l.range(5).toString());
+    });
 });
 

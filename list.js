@@ -146,11 +146,22 @@ function list(items) {
    return list;
 }
 
+/* Return the range [0,n) as a list.
+ *
+ * Examples:
+ *   range(0) // returns EMPTY
+ *   range(5) // returns list([0,1,2,3,4])
+ */
+function range(n) {
+   // TODO
+}
+
 // Make sure EMPTY is immutable!
 Object.freeze(EMPTY);
 
 module.exports = {
    EMPTY: EMPTY,
    isList: isList,
-   list: list
+   list: list,
+   range: range
 };
