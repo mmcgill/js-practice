@@ -162,14 +162,23 @@ List.prototype.reverse = function() {
  * only the elements of l for which pred(l) is truthy.
  *
  * Examples:
- *   var isOdd = function(x) { return x & 1 === 1; };
+ *   var isOdd = function(x) { return (x & 1) === 1; };
  *   list([1,2,3,4]).filter(isOdd).eq(list([1,3,5])); // true
  */
 EMPTY.filter = function(pred) {
-   // TODO
+    return EMPTY;
 }
 List.prototype.filter = function(pred) {
-   // TODO
+    var result = EMPTY;
+    var l = this;
+    while (l !== EMPTY) {
+        var x = l.first();
+        var l = l.rest();
+        if (pred(x)) {
+            result = result.cons(x);
+        }
+    }
+    return result.reverse();
 }
 
 ///////////// concat ////////////////
