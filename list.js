@@ -126,10 +126,16 @@ List.prototype.map = function(f) {
  *   10 === list([1,2,3,4]).reduce(add, 0)
  */
 EMPTY.reduce = function(f, initial) {
-   // TODO
+    return initial;
 }
 List.prototype.reduce = function(f, initial) {
-   // TODO
+    var x = initial;
+    var l = this;
+    while (l !== EMPTY) {
+        x = f(x, l.first());
+        l = l.rest();
+    }
+    return x;
 }
 
 ////////////// reverse //////////////
