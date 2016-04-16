@@ -189,10 +189,16 @@ List.prototype.filter = function(pred) {
  *   list([1,2]).concat(list([3,4])).eq(list[1,2,3,4])); // true
  */
 EMPTY.concat = function(l2) {
-   // TODO
+    return l2;
 }
 List.prototype.concat = function(l2) {
-   // TODO
+    var result = l2;
+    var l = this.reverse();
+    while (l !== EMPTY) {
+        result = result.cons(l.first());
+        l = l.rest();
+    }
+    return result;
 }
 
 ///////////// TOP-LEVEL FUNCTIONS ////////////
