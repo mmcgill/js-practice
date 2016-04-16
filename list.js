@@ -38,9 +38,17 @@ List.prototype.cons = EMPTY.cons;
 
 EMPTY.eq = function(l2) { return l2 === EMPTY; };
 List.prototype.eq = function(l2) {
-   if (!isList(l2)) return false;
-   var x_eq = isList(this.x) ? this.x.eq(l2.x) : this.x === l2.x;
-   return x_eq && this.tail.eq(l2.tail);
+    if (!isList(l2)) return false;
+    var me = this;
+    var it = l2;
+    while (me !== EMPTY && it !== EMPTY) {
+        if (!(isList(me.x) ? me.x.eq(it.x) : me.x === it.x)) {
+            return false;
+        }
+        me = me.tail;
+        it = it.tail;
+    }
+    return me === it;
 }
 
 /////////// toString ////////////
