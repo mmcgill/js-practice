@@ -99,7 +99,13 @@ EMPTY.map = function(f) {
    return EMPTY;
 }
 List.prototype.map = function(f) {
-   return this.tail.map(f).cons(f(this.x));
+    var result = EMPTY;
+    var l = this.reverse();
+    while (l !== EMPTY) {
+        result = result.cons(f(l.first()));
+        l = l.rest();
+    }
+    return result;
 }
 
 //////////// reduce ///////////////
