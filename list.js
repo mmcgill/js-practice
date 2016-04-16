@@ -131,11 +131,17 @@ List.prototype.reduce = function(f, initial) {
 /* Return the reverse of the list.
  */
 EMPTY.reverse = function() {
-   // TODO
+    return EMPTY;
 }
 
 List.prototype.reverse = function() {
-   // TODO
+    var result = EMPTY;
+    var l = this;
+    while (l !== EMPTY) {
+        result = result.cons(l.first());
+        l = l.rest();
+    }
+    return result;
 }
 
 ///////////// filter ////////////////
