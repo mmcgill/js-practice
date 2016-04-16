@@ -197,7 +197,14 @@ function list(items) {
  *   range(5) // returns list([0,1,2,3,4])
  */
 function range(n) {
-   // TODO
+    if (n < 0) {
+        return undefined;
+    }
+    var result = EMPTY;
+    for (var i = n-1; i >= 0; i--) {
+        result = result.cons(i);
+    }
+    return result;
 }
 
 // Make sure EMPTY is immutable!
